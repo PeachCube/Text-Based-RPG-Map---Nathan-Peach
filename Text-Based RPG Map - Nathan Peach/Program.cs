@@ -34,6 +34,12 @@ namespace Text_Based_RPG_Map___Nathan_Peach
 
         static void Main(string[] args)
         {
+            Console.WriteLine(map);
+            Console.ReadKey(true);
+        }
+        static void DisplayMap(int scale)
+        {
+
         }
     }
 }
