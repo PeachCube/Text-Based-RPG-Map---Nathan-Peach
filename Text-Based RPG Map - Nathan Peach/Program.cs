@@ -23,8 +23,9 @@ namespace Text_Based_RPG_Map___Nathan_Peach
         {'`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`'},
         {'`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`'},
     };
-
-        // usage: map[y, x]
+        static int width = 30;
+        static int height = 12;
+        // usage: map[y, x] <--- coordinates start at 0,0 and not 1,1; no negative coordinates. To find [3,4], you would first move down 4 tiles, then move right 5 tiles.
 
         // map legend:
         // ^ = mountain
@@ -34,10 +35,21 @@ namespace Text_Based_RPG_Map___Nathan_Peach
 
         static void Main(string[] args)
         {
-            Console.WriteLine(map);
+            DisplayMap();
             Console.ReadKey(true);
         }
-        static void DisplayMap(int scale)
+        static void DisplayMap()//Unscaled version
+        {
+            for (int x = 0; x <= width - 1; x++ )
+            {
+                for (int y = 0; y <= height - 1; y++)
+                {
+                    Console.SetCursorPosition(x, y);
+                    Console.WriteLine(map[y,x]);
+                }
+            }
+        }
+        static void DisplayMap(int scale)//Scaled version
         {
 
         }
