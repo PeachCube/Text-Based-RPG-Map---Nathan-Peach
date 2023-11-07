@@ -25,7 +25,7 @@ namespace Text_Based_RPG_Map___Nathan_Peach
     };
         static int width = 30;
         static int height = 12;
-        // usage: map[y, x] <--- coordinates start at 0,0 and not 1,1; no negative coordinates. To find [3,4], you would first move down 4 tiles, then move right 5 tiles.
+        // usage: map[y, x] <--- coordinates start at 0,0 and not 1,1; no negative coordinates. To find [3,4], you would first move down to the fourth tile, then move to the fifth right tile.
 
         // map legend:
         // ^ = mountain
@@ -40,18 +40,28 @@ namespace Text_Based_RPG_Map___Nathan_Peach
         }
         static void DisplayMap()//Unscaled version
         {
-            for (int x = 0; x <= width - 1; x++ )
+            Console.WriteLine("+------------------------------+");
+            for (int x = 0; x <= width - 1; x++)
             {
-                for (int y = 0; y <= height - 1; y++)
+                for (int y = 0; y <= height - 1; y++, Console.WriteLine("|"))
                 {
-                    Console.SetCursorPosition(x, y);
-                    Console.WriteLine(map[y,x]);
+
+                    Console.SetCursorPosition(x + 1, y + 1);
+                    Console.Write(map[y, x]);
                 }
+                Console.WriteLine("+------------------------------+");
             }
         }
         static void DisplayMap(int scale)//Scaled version
         {
-
+            for (int x = 0; x <= width - 1; x++)
+            {
+                for (int y = 0; y <= height - 1; y++, Console.WriteLine("|"))
+                {
+                    Console.SetCursorPosition(x + 1 + scale, y + 1 + scale);
+                    Console.Write(map[y, x]);
+                }
+            }
         }
     }
 }
